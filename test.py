@@ -8,21 +8,11 @@
 #for i in range(0, thislist.__len__()):
 #    print(thislist[i])
 
-import json
+import pandas as pd
 
-my_details = {
-    'name': 'John Doe',
-    'age': 29
-}
+d = [ ["Mark", 12, 95],
+     ["Jay", 11, 88],
+     ["Jack", 14, 90]]
 
-with open('personal.json', 'w') as json_file:
-    json.dump(my_details, json_file)
-
-f = open('personal.json')
-
-data = json.load(f)
-
-for i in data['emp_details']:
-    print(i)
-
-f.close()
+df = pd.DataFrame(d, columns = ['Name','Age','Percent'])
+print(df)
