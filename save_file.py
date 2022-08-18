@@ -1,4 +1,5 @@
 
+from asyncio.windows_events import NULL
 import json
  
 # Data to be written
@@ -9,7 +10,7 @@ dictionary = {
     "phonenumber": "9976770500"
 }
 
-employee = {'E01' : dictionary, 'E02' : dictionary}
+employee = {'E01' : dictionary, 'E02' : dictionary, 'E03' : NULL}
  
 # Serializing json
 json_object = json.dumps(employee, indent=4)

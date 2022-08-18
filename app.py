@@ -1,5 +1,4 @@
-from menu import *
-from py import *
+from switch import start_menu_switch
 
 def __main__():
 
@@ -7,6 +6,6 @@ def __main__():
 
     print(welcome.read())
 
-    start_menu()
+    start_menu_switch()
 
 __main__()

@@ -5,8 +5,10 @@ def start_menu():
 
     print(menu.read())
 
-    
+
 
 def employee_menu():
 
     menu = open('./Menu/employee_menu.txt')
+
+    print(menu.read())

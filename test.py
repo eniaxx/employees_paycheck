@@ -1,18 +1,6 @@
-#thislist = ["apple", "banana", "cherry"]
-#tropical = ["mango", "pineapple", "kiwi", "papaya"]
-#thislist.extend(tropical)
-#print("\n", str(thislist), "\n")
-
-#x = thislist.__len__()
-    
-#for i in range(0, thislist.__len__()):
-#    print(thislist[i])
-
+import os, json
 import pandas as pd
 
-d = [ ["Mark", 12, 95],
-     ["Jay", 11, 88],
-     ["Jack", 14, 90]]
-
-df = pd.DataFrame(d, columns = ['Name','Age','Percent'])
-print(df)
+path_to_json = './'
+json_files = [pos_json for pos_json in os.listdir(path_to_json) if pos_json.endswith('.json')]
+print(json_files)  # for me this prints ['foo.json']
