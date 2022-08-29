@@ -1,136 +1,132 @@
 from menu import *
 from list_dir import *
-from read_file import *
-import pandas as pd
+from data_operations import *
 
-#def write():	
-	
-#	_input = input("\n Type the input: \n")
-	#print(_input + '\n') 
-	#print(type(_input))
-	
-#	switch()
-	
-def start_menu_switch():
-	
-	start_menu()
+#Class for taking valid int input
+class Case:
 
-	while True:
-		try:
-			_switch = int(input('\n Type a number.' + '\n'))
-			break
-		except ValueError:
-			print("\n Invalid. Use valid number.")
+	def choice():
+		#infinite loop with exception for anything else than int and break
+		while True:
+			try:
+				argument = int(input('\n Type a number' + '\n'))
+				break
+			except ValueError:
+				print('\n Invalid. Use valid number.')
+		return argument
+
+#Start Menu Class with __init__, __err__, which_case, case_0 to case_6
+class Start_Menu:
+	
+	#Initialazing the Start Menu class
+	def __init__():
+	
+		Print_Menu.start_menu()
+
+		Start_Menu.which_case(Case.choice())
+	
+	#Function for handling int input error (no case available), default action
+	def __error__():
+
+		print('\n Incorrect choice.')
+
+		return Start_Menu.which_case(Case.choice())
+	
+	#This function switch between cases
+	def which_case(argument):
+
+		case = 'case_' + str(argument)
+
+		print('\n' + case)
 		
-	if _switch == 0:	
-		
-		print('\n' + 'See you soon.')
+		default = Start_Menu.__error__
+
+		return getattr(Start_Menu, case, default)()
+
+	#Defined case functions and their behavior
+	def case_0():
+
+		print('\n See you soon.')
 
 		exit()
 
-	elif _switch == 1:
-
-		print("\n You've choosen 1. \n Choose json file.\n")
-
-		list_Database()
-
-		print(pd.DataFrame(json_read()))
-
-		start_menu_switch()
-
-	elif _switch == 2:
+	def case_1():
 		
-		#print("\n You've choosen 2")
+		Database.read()
 
-		employee_menu_switch()
+	def case_2():
+		
+		Employee_Menu.__init__()
 
-	elif _switch == 3:
+	def case_3():
 		
-		print("\n You've choosen 3")
-		
-		start_menu_switch()
+		exit()
 
-	elif _switch == 4:
+	def case_4():
 		
-		print("\n You've choosen 4")
-		
-		start_menu_switch()
-
-	elif _switch == 5:
-		
-		print("\n You've choosen 5")
-		
-		start_menu_switch()
-
-	elif _switch == 6:
-		
-		print("\n You've choosen 6")
-		
-		start_menu_switch()
-
-	else:
-		
-		print('\n' + 'Invalid.')
-		
-		start_menu_switch()
-
-
-def employee_menu_switch():
+		exit()
 	
-	employee_menu()
+	def case_5():
+		
+		exit()
+	
+	def case_6():
+		
+		exit()
 
-	while True:
-		try:
-			_switch = int(input('\n Type a number' + '\n'))
-			break
-		except ValueError:
-			print("\n Invalid. Use valid number.")
-		
-	if _switch == 0:	
-		
-		#print('\n' + 'See you soon.')
-		#exit()
+#Employee Menu Class with __init__, __err__, which_case, case_0 to case_6
+class Employee_Menu:
 
-		start_menu_switch()
+	#Initialazing the Employee Menu class
+	def __init__():
+	
+		Print_Menu.employee_menu()
 
-	elif _switch == 1:
-		
-		print("\n You've choosen 1")
+		Employee_Menu.which_case(Case.choice())
 
-		employee_menu_switch()
+	#Function for handling int input error (no case available), default action
+	def __error__():
 
-	elif _switch == 2:
-		
-		print("\n You've choosen 2")
+		print('\n Incorrect choice.')
 
-		employee_menu_switch()
+		return Employee_Menu.which_case(Case.choice())
 
-	elif _switch == 3:
-		
-		print("\n You've choosen 3")
-		
-		employee_menu_switch()
+	#This function switch between cases
+	def which_case(argument):
 
-	elif _switch == 4:
-		
-		print("\n You've choosen 4")
-		
-		employee_menu_switch()
+		case = 'case_' + str(argument)
 
-	elif _switch == 5:
+		print('\n' + case)
 		
-		print("\n You've choosen 5")
-		
-		employee_menu_switch()
+		default = Employee_Menu.__error__
 
-	elif _switch == 6:
-		
-		print("\n You've choosen 6")
-		
-		employee_menu_switch()
+		return getattr(Employee_Menu, case, default)()
 
-	else:
+	#Defined case functions and their behavior
+	def case_0():
+
+		Start_Menu.__init__()
+
+	def case_1():
 		
-		print('\n' + 'Invalid.')
+		exit()
+
+	def case_2():
 		
-		employee_menu_switch()
+		exit()
+
+	def case_3():
+		
+		exit()
+
+	def case_4():
+		
+		exit()
+	
+	def case_5():
+		
+		exit()
+	
+	def case_6():
+		
+		exit()

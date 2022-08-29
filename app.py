@@ -1,11 +1,14 @@
-from switch import start_menu_switch
+from switch import Start_Menu
 
-def __main__():
 
-    welcome = open('./Menu/welcome.txt')
+class __main__:
 
-    print(welcome.read())
+    def __init__():
 
-    start_menu_switch()
+        welcome = open('./Menu/welcome.txt')
 
-__main__()
+        print(welcome.read())
+
+        Start_Menu.__init__()
+
+__main__.__init__()
