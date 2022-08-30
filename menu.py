@@ -1,18 +1,18 @@
-import data_operations
+import data_operations as do
 
 class Print_Menu():
 
-    def start_menu():
+	def menu(choice):
 
-        menu = open('./Menu/start_menu.txt')
+		match choice:
+			
+			case 'Start':
+				
+				print(open('./Menu/start_menu.txt').read())
+			
+			case 'Employee':
 
-        print(menu.read())
-
-    def employee_menu():
-
-        menu = open('./Menu/employee_menu.txt')
-
-        print(menu.read())
+				print(open('./Menu/employee_menu.txt').read())
 
 #Start Menu Class with __init__, __err__, which_case, case_0 to case_6
 class Start_Menu:
@@ -20,7 +20,7 @@ class Start_Menu:
 	#Initialazing the Start Menu class
 	def __init__():
 	
-		Print_Menu.start_menu()
+		Print_Menu.menu('Start')
 
 		Start_Menu.which_case(Case.choice())
 	
@@ -51,11 +51,11 @@ class Start_Menu:
 
 	def case_1():
 		
-		file_name = data_operations.Database.database_name()
+		file_name = do.Database.database_name()
 
-		file_data = data_operations.Database.read(file_name)
+		file_data = do.Database.read(file_name)
 
-		data_operations.Operation.store(file_name, file_data)
+		do.Operation.store(file_name, file_data)
 
 	def case_2():
 		
@@ -83,7 +83,7 @@ class Employee_Menu:
 	#Initialazing the Employee Menu class
 	def __init__():
 	
-		Print_Menu.employee_menu()
+		Print_Menu.menu('Employee')
 
 		Employee_Menu.which_case(Case.choice())
 
