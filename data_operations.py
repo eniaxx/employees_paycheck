@@ -1,16 +1,28 @@
-# import pandas as pd
-# print(pd.DataFrame(data = json_object))
-
-import json, pandas
+import os, json, pandas, menu
 
 class Database:
 
-    def read():
-        # Opening JSON file
-        with open('./Database/' + input('\n Type name.json. \n'), 'r') as json_file:
- 
-            # Reading from json file
-            database = json.load(json_file)
+    def list_Database():
+    
+        dir = './Database'
+
+        print(pandas.DataFrame(data = os.listdir(dir)))
+
+    def database_name():
+
+        Database.list_Database()
+
+        json_file = input('\n Type database name. \n')
+
+        return json_file
+
+    def read(name):
+        
+         # Opening JSON file
+        with open('./Database/' + name + '.json', 'r') as _name:
+
+        # Reading from json file
+            database = json.load(_name)
     
         return database
 
@@ -30,16 +42,29 @@ class Database:
 
 class Operation:
 
-    data = []
+    cached_data = {}
 
-    def store(database):
+    def store(name, database):
         
-        Operation.data.append(database)
+        Operation.cached_data[name] = database
+
+        print(pandas.DataFrame(data= Operation.cached_data[name]))
 
     def clear():
 
-        Operation.data.clear()
+        Operation.cached_data.clear()
 
-    def paycheck_sum():
+    def empty_database_check():
 
-        pass
+        while Operation.cached_data is True:
+            
+            try:
+                return True
+                
+            except ValueError:
+
+                print("\n Invalid. You didn't load a database.")
+
+                menu.Start_Menu.__init__()
+        
+        #return something(data)
